@@ -18,8 +18,8 @@ app.post('/', function(req, res) {
     .header("X-Mashape-Key", "Ole1Gv2CajmshmIErnYAtZtaK9iHp1Rkjv1jsnu3RYLMqETD5X")
     .header("Accept", "application/json")
     .end(function (result) {
-      console.log(result.body.show_title);
-      var responseTxt = JSON.stringify(result.body)
+      console.log(result.body);
+      let responseTxt = result.body;
       res.send(responseTxt)
     });
 })
