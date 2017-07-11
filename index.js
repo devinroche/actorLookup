@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index', {showTitle: null, error: null});
 })
 
 app.post('/', function(req, res) {
@@ -21,11 +21,12 @@ app.post('/', function(req, res) {
     .header("Accept", "application/json")
     .end(function (result) {
       let responseTxt = _.map(result.body, 'show_title');
-      _.forEach(responseTxt, function(title){
-        res.write(title);
-        res.write('\n')
-      })
-      res.end()
+      res.render('index', {showTitle: responseTxt})
+      // _.forEach(responseTxt, function(title){
+      //   res.write(title);
+      //   res.write('\n')
+      // })
+      // res.end();
     });
 })
 app.listen(3000, function() {

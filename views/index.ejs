@@ -14,6 +14,9 @@
         <input name="actor" type="text" class="ghost-input" placeholder="Enter Actor or Actress" required>
         <input type="submit" class="ghost-button" value="Get Data">
       </form>
+      <% if(showTitle !== null){ %>
+          <p><%= showTitle %></p></br>
+        <% } %>
     </fieldset>
   </div>
 </body>
