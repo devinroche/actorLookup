@@ -20,6 +20,7 @@ app.use(methodOverride())
 app.use(express.static('public'));
 const foo = require(__dirname + '/public/script/controller.js');
 
+
 app.get('/', function(req, res) {
   res.render('index', {
     showTitle: null,
