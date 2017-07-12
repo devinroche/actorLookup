@@ -17,21 +17,17 @@
 
       <% if(showTitle !== null){ %>
         <p>
-          <h5>Searched For</h5>
-          <%= searchFor  %>
+          <h3>Searched: <%= searchFor  %> </h3>
+          <h4>Average Rating: <%= avg %>/5 </h4>
+          <hr />
         </p>
-        <p>
-          <h5>Stars In..</h5>
-          <%= showTitle %>
-        </p>
-        <p>
-          <h5>Movie/Show Ratings</h5>
-          <%= rating %>
-        </p>
-        <p>
-          <h5>Average Rating</h5>
-          <%= avg %>
-        </p>
+        <ul>
+          <% for(var i=0; i<showTitle.length; i++) { %>
+            <li>
+              <%= showTitle[i] %>
+            </li>
+            <% } %>
+        </ul>
         <% } %>
 
     </fieldset>

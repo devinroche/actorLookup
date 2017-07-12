@@ -11,13 +11,11 @@ module.exports = {
   findTitles: function(searchResults) {
     let resTitles = _.map(searchResults, 'show_title');
     let resRating = _.map(searchResults, 'rating');
-
     let titleRate = []
 
     for (var i = 0; i < searchResults.length; i++) {
       titleRate.push(resTitles[i] + " " + resRating[i]);
     }
-
     return titleRate;
   }
 }
