@@ -1,6 +1,4 @@
 # Actor Lookup
-<a href="https://zenhub.com"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
-
 
 ## About
 I am using this to practice node and express.
@@ -16,10 +14,4 @@ npm install
 node index.js
 ```
 
-## TODO
-- [ ] Calculate mean of ratings
-- [ ] Find related actors
-- [ ] Break up files (currently a mega file)
-- [ ] Link movies to Netflix
-- [ ] Add Styles
-- [ ] Change Front End Language
+<a href="https://zenhub.com"><img src="https://raw.githubusercontent.com/ZenHubIO/support/master/zenhub-badge.png"></a>
