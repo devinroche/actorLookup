@@ -14,16 +14,31 @@
         <input name="actor" type="text" class="ghost-input" placeholder="Actor/Actress" required>
         <input type="submit" class="ghost-button" value="Search">
       </form>
+
       <% if(showTitle !== null){ %>
-      <p>
-        <%= showTitle %>
-      </p>
-      </br>
+        <p>
+          <%= showTitle %>
+        </p>
+        <br />
       <% } %>
 
+      <% if(rating!=null){ %>
+        <p>
+          <%= rating %>
+        </p>
+        <br />
+      <% } %>
+
+      <% if(avg!=null){ %>
+        <p>
+          <%= avg %>
+        </p>
+        </br>
+      <% } %>
 
     </fieldset>
   </div>
+  <script type="text/javascript" src="script/controller.js"></script>
 </body>
 
 </html>
