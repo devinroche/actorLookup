@@ -1,19 +1,19 @@
-#Actor Lookup
+# Actor Lookup
 
 Hello there, ever wonder which movies (on netflix) an actor is in? Wonder no more!
 Search your favorite actors and see which movies they are in, their average rating,
 and similar actors!
 
-##About
+## About
 I am using this to practice node/express!
 
-##Install
+## Install
 ```
 npm install
 node index.js
 ```
 
-##TODO
+## TODO
 - [ ] add Styles
 - [ ] Calculate mean of ratings
 - [ ] Find related actors
