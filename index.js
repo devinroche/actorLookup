@@ -2,14 +2,22 @@ const express = require('express');
 const unirest = require('unirest');
 const bodyParser = require('body-parser');
 const _ = require('lodash');
+const mongoose = require('mongoose');
+const methodOverride = require ('method-override');
 const app = express();
+
+//CONFIGURATION
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json())
+app.use(bodyParser.json({type: 'application.vnd.api+json'}))
+app.use(methodOverride())
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
   res.render('index', {showTitle: null, error: null});
+  res.sendfile('index.html')
 })
 
 app.post('/', function(req, res) {
@@ -21,14 +29,10 @@ app.post('/', function(req, res) {
     .header("Accept", "application/json")
     .end(function (result) {
       let responseTxt = _.map(result.body, 'show_title');
+      console.log(responseTxt);
       res.render('index', {showTitle: responseTxt})
-      // _.forEach(responseTxt, function(title){
-      //   res.write(title);
-      //   res.write('\n')
-      // })
-      // res.end();
     });
 })
 app.listen(3000, function() {
-  console.log('Port 3000')
+  console.log('Listening on Port 3000')
 })

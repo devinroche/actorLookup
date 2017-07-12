@@ -11,12 +11,17 @@
   <div class="container">
     <fieldset>
       <form action="/" method="post">
-        <input name="actor" type="text" class="ghost-input" placeholder="Enter Actor or Actress" required>
-        <input type="submit" class="ghost-button" value="Get Data">
+        <input name="actor" type="text" class="ghost-input" placeholder="Actor/Actress" required>
+        <input type="submit" class="ghost-button" value="Search">
       </form>
       <% if(showTitle !== null){ %>
-          <p><%= showTitle %></p></br>
-        <% } %>
+      <p>
+        <%= showTitle %>
+      </p>
+      </br>
+      <% } %>
+
+
     </fieldset>
   </div>
 </body>
