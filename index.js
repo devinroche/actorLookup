@@ -37,15 +37,13 @@ app.post('/', function(req, res) {
     .header("X-Mashape-Key", "Ole1Gv2CajmshmIErnYAtZtaK9iHp1Rkjv1jsnu3RYLMqETD5X")
     .header("Accept", "application/json")
     .end(function(result) {
-      let resTitles = _.map(result.body, 'show_title');
       let resRating = _.map(result.body, 'rating');
       //let rateArr = [];
 
-      foo.bar();
 
       res.render('index', {
         searchFor: searchActor,
-        showTitle: resTitles,
+        showTitle: foo.findTitles(result.body),
         rating: resRating,
         avg: foo.findAvg(resRating)
       })

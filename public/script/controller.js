@@ -1,23 +1,23 @@
 const _ = require('lodash');
 
-// module.exports = function (params){
-//   this.findAvg = function (szdfads) {
-//
-//   }
-// }
-
-
 module.exports = {
-  findAvg: function(rateArr){
+  findAvg: function(rateArr) {
     let rateAvg = []
-    _.forEach(rateArr, function(index){
+    _.forEach(rateArr, function(index) {
       rateAvg.push(parseFloat(index));
     });
-
-    let ratingAvg = _.round(_.mean(rateAvg), 2);
-    return ratingAvg
+    return _.round(_.mean(rateAvg), 2);
   },
-  bar: function(){
-    console.log("bar");
+  findTitles: function(searchResults) {
+    let resTitles = _.map(searchResults, 'show_title');
+    let resRating = _.map(searchResults, 'rating');
+
+    let titleRate = []
+
+    for (var i = 0; i < searchResults.length; i++) {
+      titleRate.push(resTitles[i] + " " + resRating[i]);
+    }
+
+    return titleRate;
   }
 }
