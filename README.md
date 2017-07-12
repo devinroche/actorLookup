@@ -6,7 +6,7 @@
 I am using this to practice node and express.
 [Uses Netflix Roulette API](https://market.mashape.com/community/netflix-roulette)
 
-Hello there, ever wonder which movies (on netflix) an actor is in? Wonder no more!
+Ever wonder which movies (on netflix) an actor is in? Wonder no more!
 Search your favorite actors and see which movies they are in, their average rating,
 and similar actors!
 
