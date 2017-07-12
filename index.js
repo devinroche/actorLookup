@@ -18,6 +18,7 @@ app.use(bodyParser.json({
 }))
 app.use(methodOverride())
 app.use(express.static('public'));
+const foo = require(__dirname + '/public/script/controller.js');
 
 app.get('/', function(req, res) {
   res.render('index', {
@@ -38,11 +39,15 @@ app.post('/', function(req, res) {
     .end(function(result) {
       let resTitles = _.map(result.body, 'show_title');
       let resRating = _.map(result.body, 'rating');
-      let resRatingAvg = _.mean(resRating);
+      //let rateArr = [];
+
+      foo.bar();
+
       res.render('index', {
+        searchFor: searchActor,
         showTitle: resTitles,
         rating: resRating,
-        avg: resRatingAvg
+        avg: foo.findAvg(resRating)
       })
     });
 })
