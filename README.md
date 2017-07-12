@@ -5,7 +5,7 @@ Search your favorite actors and see which movies they are in, their average rati
 and similar actors!
 
 ## About
-I am using this to practice node and express. Hope to add a front end language other than ejs...
+I am using this to practice node and express.
 [Uses Netflix Roulette API](https://market.mashape.com/community/netflix-roulette)
 
 ## Install
@@ -20,3 +20,4 @@ node index.js
 - [ ] Break up files (currently a mega file)
 - [ ] Link movies to Netflix
 - [ ] Add Styles
+- [ ] Change Front End Language
