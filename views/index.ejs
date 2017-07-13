@@ -3,24 +3,27 @@
 <head>
   <meta charset="utf-8">
   <title>Test</title>
-  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
   <div class="container">
     <fieldset>
-      <form action="/" method="post">
-        <input name="actor" type="text" class="ghost-input" placeholder="Actor/Actress" required>
-        <input type="submit" class="ghost-button" value="Search">
-      </form>
+      <div class="searchContainer">
+        <form action="/" method="post">
+          <input name="actor" type="text" class="ghost-input" placeholder="Actor/Actress (Adam Sandler)" required>
+          <input type="submit" class="ghost-button" value="Search">
+        </form>
+      </div>
 
       <% if(showTitle !== null){ %>
-        <p>
+        <div class="userContainer">
           <h3>Searched: <%= searchFor  %> </h3>
-          <h4>Average Rating: <%= avg %>/5 </h4>
-          <hr />
-        </p>
+          <h4>Average Rating: <%= avg %> /5 </h4>
+          <img src="https://thumbs.dreamstime.com/x/headshot-attractive-senior-woman-23411047.jpg" width="100" height="160" alt="">
+        </div>
+        <div class="titlesContainer">
         <ul>
           <% for(var i=0; i<showTitle.length; i++) { %>
             <li>
@@ -28,11 +31,41 @@
             </li>
             <% } %>
         </ul>
+        </div>
         <% } %>
 
     </fieldset>
+    <canvas id="myChart" class="searchContainer"></canvas>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" crossorigin="anonymous"></script>
+  <script>
+  var ctx = document.getElementById("myChart");
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: [<%= showTitle %>],
+          datasets: [{
+              label: 'Film Rating',
+              data: [<%=rating %>],
+              borderColor: [
+                  'rgba(255,99,132,1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+  });
+  </script>
   <script type="text/javascript" src="script/controller.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
 </body>
 
 </html>
