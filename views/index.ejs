@@ -21,51 +21,69 @@
         <div class="userContainer">
           <h3>Searched: <%= searchFor  %> </h3>
           <h4>Average Rating: <%= avg %> /5 </h4>
-          <img src="https://thumbs.dreamstime.com/x/headshot-attractive-senior-woman-23411047.jpg" width="100" height="160" alt="">
         </div>
         <div class="titlesContainer">
-        <ul>
-          <% for(var i=0; i<showTitle.length; i++) { %>
-            <li>
-              <%= showTitle[i] %>
-            </li>
-            <% } %>
-        </ul>
+          <ul>
+            <% for(var i=0; i<showTitle.length; i++) { %>
+              <li>
+                <%= showTitle[i] %>
+              </li>
+              <% } %>
+          </ul>
         </div>
+        <canvas id="myChart" class="searchContainer"></canvas>
         <% } %>
 
     </fieldset>
-    <canvas id="myChart" class="searchContainer"></canvas>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="script/controller.js"></script>
   <script>
-  var ctx = document.getElementById("myChart");
-  var myChart = new Chart(ctx, {
-      type: 'bar',
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+      type: 'line',
       data: {
-          labels: [<%= showTitle %>],
-          datasets: [{
-              label: 'Film Rating',
-              data: [<%=rating %>],
-              borderColor: [
-                  'rgba(255,99,132,1)'
-              ],
-              borderWidth: 1
-          }]
+        labels: <%- JSON.stringify(showTitle); %>,
+        datasets: [{
+          label: 'Ascending by Year',
+          data: [<%=rating %>],
+          backgroundColor: 'rgba(255, 99, 132, 0.8)',
+          borderColor: 'rgba(255, 99, 132, 0.8)',
+          fill: false,
+          borderWidth: 1,
+          pointRadius: 8,
+          pointHoverRadius: 10,
+        }]
       },
       options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
+        elements: {
+          point: {
+            pointStyle: 'rectRounded'
           }
+        },
+        legend: {
+
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              max: 5,
+              fontSize: 16,
+              autoSkip: false
+            }
+          }],
+          xAxes: [{
+            ticks: {
+              autoSkip: false,
+              fontSize: 14,
+              max: 10,
+            }
+          }]
+        }
       }
-  });
+    });
   </script>
-  <script type="text/javascript" src="script/controller.js"></script>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
 </body>
 
 </html>

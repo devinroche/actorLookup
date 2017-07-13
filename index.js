@@ -18,7 +18,6 @@ app.use(bodyParser.json({
 app.use(express.static('public'));
 const foo = require(__dirname + '/public/script/controller.js');
 
-
 app.get('/', function(req, res) {
   res.render('index', {
     showTitle: null,
@@ -43,7 +42,8 @@ app.post('/', function(req, res) {
         showTitle: foo.getTitles(result.body),
         ratingData: foo.getScore(result.body),
         rating: foo.getRatings(result.body),
-        avg: foo.getAverage(foo.getRatings(result.body))
+        avg: foo.getAverage(foo.getRatings(result.body)),
+        barColors: foo.getColors()
       })
     });
 })
