@@ -31,7 +31,7 @@
               <% } %>
           </ul>
         </div>
-        <canvas id="myChart" class="searchContainer"></canvas>
+        <canvas id="myChart" class="viewContainer"></canvas>
         <% } %>
 
     </fieldset>
@@ -44,6 +44,7 @@
       type: 'line',
       data: {
         labels: <%- JSON.stringify(showTitle); %>,
+        animationEasing: 'easeOutBounce',
         datasets: [{
           label: 'Ascending by Year',
           data: [<%=rating %>],
@@ -53,7 +54,7 @@
           borderWidth: 1,
           pointRadius: 8,
           pointBackgroundColor: 'rgba(185,9,11, .8)',
-          pointBorderColor: 'rgba(185,9,11, .8)',
+          pointBorderColor: 'rgba(185,9,11, 1)',
           pointHoverRadius: 10,
         }]
       },
