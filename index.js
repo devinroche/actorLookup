@@ -11,12 +11,10 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(bodyParser.json())
-app.use(bodyParser.json({
-  type: 'application.vnd.api+json'
-}))
-
+app.use(bodyParser.json({type: 'application.vnd.api+json'}))
 app.use(express.static('public'));
-const foo = require(__dirname + '/public/script/controller.js');
+
+const pathCtrl = require(__dirname + '/public/script/controller.js');
 
 app.get('/', function(req, res) {
   res.render('index', {
@@ -39,15 +37,15 @@ app.post('/', function(req, res) {
 
       res.render('index', {
         searchFor: searchActor,
-        showTitle: foo.getTitles(result.body),
-        ratingData: foo.getScore(result.body),
-        rating: foo.getRatings(result.body),
-        avg: foo.getAverage(foo.getRatings(result.body)),
-        barColors: foo.getColors()
+        showTitle: pathCtrl.getTitles(result.body),
+        ratingData: pathCtrl.getScore(result.body),
+        rating: pathCtrl.getRatings(result.body),
+        avg: pathCtrl.getAverage(pathCtrl.getRatings(result.body)),
+        barColors: pathCtrl.getColors()
       })
     });
 })
 
 app.listen(3000, function() {
-  console.log('Port 3000')
+  console.log('Listening on Port 3000')
 })

@@ -58,9 +58,6 @@
         }]
       },
       options: {
-        animation: {
-          duration: 5000
-        },
         elements: {
           point: {
             pointStyle: 'rectRounded'
@@ -73,6 +70,8 @@
           yAxes: [{
             ticks: {
               beginAtZero: true,
+              stepSize: 1,
+              suggestedMin: 0,
               max: 5,
               fontSize: 16,
               autoSkip: false
