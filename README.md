@@ -28,4 +28,4 @@ node index.js
 * [Node](https://nodejs.org/en/)
 * [Express.js](https://expressjs.com/)
 
-This project is a work in process! :)
+This project is a work in process!
