@@ -1,4 +1,4 @@
-# Actor Lookup
+# Actor Lookup 
 
 Ever wonder which movies (on netflix) an actor is in? Wonder no more!
 Search your favorite actors and see which movies they are in, their average rating,
@@ -27,4 +27,5 @@ node index.js
 * [Uses Netflix Roulette API](https://market.mashape.com/community/netflix-roulette)
 * [Node](https://nodejs.org/en/)
 * [Express.js](https://expressjs.com/)
-* Codeship
+
+This project is a work in process! :)
