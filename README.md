@@ -1,4 +1,4 @@
-# Actor Lookup 
+# [Actor Lookup](https://actor-lookup.herokuapp.com/)
 
 Ever wonder which movies (on netflix) an actor is in? Wonder no more!
 Search your favorite actors and see which movies they are in, their average rating,
