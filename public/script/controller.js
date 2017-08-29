@@ -9,10 +9,11 @@ module.exports = {
     return _.round(_.mean(rateAvg), 2);
   },
   getTitles: function(searchResults) {
-    let sortYr = _.sortBy(searchResults, ['release_year'])
-    let preStr = _.map(sortYr, 'show_title');
-    let strArr = []
-    
+    var sortYr = _.sortBy(searchResults, ['release_year'])
+    var preStr = _.map(sortYr, 'show_title');
+    var strArr = []
+    console.log(sortYr, preStr, strArr)
+
     _.forEach(preStr, function(index) {
       strArr.push(index)
     })
