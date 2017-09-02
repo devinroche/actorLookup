@@ -8,11 +8,9 @@ const app = express();
 //CONFIGURATION
 
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json())
-app.use(bodyParser.json({type: 'application.vnd.api+json'}))
+
 app.use(express.static('public'));
 
 const pathCtrl = require(__dirname + '/public/script/controller.js');
@@ -38,30 +36,16 @@ app.post('/', function(req, res) {
   }
 
   request(reqObj, function(error, response, body){
-    console.log(JSON.parse(body))
-    var res = JSON.parse(body);
+    var response = JSON.parse(body);
     res.render('index', {
         searchFor: searchActor,
-        showTitle: pathCtrl.getTitles(res),
-        ratingData: pathCtrl.getScore(res),
-        rating: pathCtrl.getRatings(res),
-        avg: pathCtrl.getAverage(pathCtrl.getRatings(res)),
+        showTitle: pathCtrl.getTitles(response),
+        ratingData: pathCtrl.getScore(response),
+        rating: pathCtrl.getRatings(response),
+        avg: pathCtrl.getAverage(pathCtrl.getRatings(response)),
         barColors: pathCtrl.getColors()
       })
   })
-  // unirest.get(url)
-  //   .header("X-Mashape-Key", "Ole1Gv2CajmshmIErnYAtZtaK9iHp1Rkjv1jsnu3RYLMqETD5X")
-  //   .header("Accept", "application/json")
-  //   .end(function(result) {
-  //     res.render('index', {
-  //       searchFor: searchActor,
-  //       showTitle: pathCtrl.getTitles(result.body),
-  //       ratingData: pathCtrl.getScore(result.body),
-  //       rating: pathCtrl.getRatings(result.body),
-  //       avg: pathCtrl.getAverage(pathCtrl.getRatings(result.body)),
-  //       barColors: pathCtrl.getColors()
-  //     })
-  //   });
 })
 
 app.listen(process.env.PORT || 3000, function () {
