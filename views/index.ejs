@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -34,12 +34,14 @@
           </ul>
         </div>
         <canvas id="myChart" class="viewContainer"></canvas>
-        <% } %>
-
+      <% } %>
     </fieldset>
+
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="script/controller.js"></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <!-- <script type="text/javascript" src="script/controller.js"></script> -->
+  <script type="text/javascript" src="script/bundle.js"></script>
   <script>
     var ctx = document.getElementById("myChart").getContext("2d");
     var myChart = new Chart(ctx, {

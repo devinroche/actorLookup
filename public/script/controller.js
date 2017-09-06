@@ -1,34 +1,37 @@
-const _ = require('lodash');
+const _ = require('lodash')
 
 module.exports = {
   getAverage: function(rateArr) {
-    let rateAvg = []
+    var rateAvg = []
     _.forEach(rateArr, function(index) {
       rateAvg.push(parseFloat(index));
     });
     return _.round(_.mean(rateAvg), 2);
   },
   getTitles: function(searchResults) {
-    let sortYr = _.sortBy(searchResults, ['release_year'])
-    let preStr = _.map(sortYr, 'show_title');
-    let strArr = []
-    
+    var sortYr = _.sortBy(searchResults, ['release_year'])
+    var preStr = _.map(sortYr, 'show_title');
+    var strArr = []
+
     _.forEach(preStr, function(index) {
       strArr.push(index)
     })
     return strArr
   },
   getScore: function(results) {
-    let strRate = _.map(results, 'rating');
-    let allScore = [];
+    var strRate = _.map(results, 'rating');
+    var allScore = [];
+
     for (var i = 0; i < strRate.length; i++) {
       allScore.push(strRate[i]);
     }
     return allScore;
   },
+
   getRatings: function(searchResults) {
     return _.map(searchResults, 'rating');
   },
+  
   getColors: function() {
     let colorsArr = [
       'rgba(255, 99, 132, 0.2)',
