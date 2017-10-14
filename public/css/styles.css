@@ -8,6 +8,7 @@ body {
   font-family: 'Open Sans', sans-serif; }
 
 .container {
+  background-color: black;
   margin: 5 auto;
   padding: 10px; }
   .container .searchContainer {
